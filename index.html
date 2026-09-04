@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="7M MOTORS - Luxury Car Dealership & Custom Restoration Studio. Legendary Performance. Timeless Restoration.">
+    <title>7M MOTORS | Luxury Car Dealership & Custom Restoration Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Syne:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ambient Glass Light Orbs & Interactive Spotlight Beam -->
+    <div class="cursor-spotlight" id="cursor-spotlight"></div>
+    <div class="ambient-glass-orb ambient-orb-1"></div>
+    <div class="ambient-glass-orb ambient-orb-2"></div>
+
+    <!-- Navigation Bar (Porsche-Style Centered Header) -->
+    <header class="navbar" id="navbar">
+        <!-- Top Centered Logo Bar -->
+        <div class="nav-top-bar">
+            <a href="#home" class="nav-logo-center">
+                <img src="logo.png" alt="7M MOTORS Logo" class="brand-logo-img" onerror="this.style.display='none'">
+                <span class="logo-text">7M MOTORS</span>
+            </a>
+        </div>
+
+        <!-- Lower Navigation Bar -->
+        <div class="nav-container">
+            <div class="nav-left-placeholder"></div>
+
+            <!-- Centered Menu Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#services" class="nav-link">Our Services</a>
+                <a href="gallery.html" class="nav-link">7M Gallery</a>
+                <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta mobile-cta">Pre-Book</a>
+            </nav>
+
+            <!-- Right Action CTA & Mobile Hamburger -->
+            <div class="nav-actions">
+                <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta desktop-cta">Pre-Book</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scroll-Driven Canvas Hero Section -->
+    <div class="hero-scroll-container" id="home">
+        <div class="hero-sticky-frame">
+            <!-- Canvas for 194-Frame Sequence -->
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-overlay"></div>
+
+            <!-- Scroll-Synced Text Overlay Container -->
+            <div class="hero-overlay-content container">
+                
+                <!-- Step 1: Main Quote (0% - 22% scroll progress) -->
+                <div class="hero-step step-1 active" data-start="0.0" data-end="0.22">
+                    <div class="hero-badge">UNLEASH THE RAW</div>
+                    <h1 class="hero-title hero-title-left">
+                        "Legendary Performance.<br>
+                        <span class="hero-title-accent">Timeless Restoration."</span>
+                    </h1>
+                    <p class="hero-subtitle">Where classic craftsmanship meets modern automotive perfection. Handcrafted engineering for the elite collector.</p>
+                    <div class="hero-cta-group">
+                        <a href="#services" class="btn btn-outline">
+                            <span>Explore Services</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                        </a>
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Pre-Book via DM</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Step 2: Feature 1 - Powertrain (25% - 47% scroll progress) -->
+                <div class="hero-step step-2" data-start="0.25" data-end="0.47">
+                    <div class="feature-tag">01 / POWERTRAIN ENGINEERING</div>
+                    <h2 class="feature-title">BLUEPRINTED V8 & TWIN-TURBO OVERHAULS</h2>
+                    <p class="feature-desc">Hand-assembled engine blueprints calibrated for max power output, extreme reliability, and an iconic acoustic signature.</p>
+                    <div class="feature-stats">
+                        <div class="f-stat"><span class="f-val">800+ HP</span><span class="f-lbl">Tuned Output</span></div>
+                        <div class="f-stat"><span class="f-val">100%</span><span class="f-lbl">Hand Blueprinted</span></div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Feature 2 - Bodywork & Carbon (50% - 72% scroll progress) -->
+                <div class="hero-step step-3" data-start="0.50" data-end="0.72">
+                    <div class="feature-tag">02 / CRAFTSMANSHIP & AERO</div>
+                    <h2 class="feature-title">CONCOURS METALWORK & CARBON FIBER</h2>
+                    <p class="feature-desc">Bare-metal chassis restoration combined with custom carbon fiber widebody panels and wind-tunnel aero sculpting.</p>
+                    <div class="feature-stats">
+                        <div class="f-stat"><span class="f-val">Bare Metal</span><span class="f-lbl">Full Restoration</span></div>
+                        <div class="f-stat"><span class="f-val">Carbon Spec</span><span class="f-lbl">Lightweight Panels</span></div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Feature 3 - Atelier Interior (75% - 98% scroll progress) -->
+                <div class="hero-step step-4" data-start="0.75" data-end="0.98">
+                    <div class="feature-tag">03 / ATELIER INTERIORS</div>
+                    <h2 class="feature-title">TAILOR-MADE LUXURY CABIN ARTISTRY</h2>
+                    <p class="feature-desc">Hand-stitched Connolly leather upholstery, milled titanium switchgear, and bespoke digital-analog instrumentation.</p>
+                    <div class="hero-cta-group">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <span>Commission a Build</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Scroll Progress Bar & Indicators -->
+                <div class="scroll-progress-wrapper">
+                    <div class="scroll-progress-track">
+                        <div class="scroll-progress-bar" id="hero-progress-bar"></div>
+                    </div>
+                    <div class="scroll-step-indicator">
+                        <span class="step-dot active" data-step="1">01</span>
+                        <span class="step-dot" data-step="2">02</span>
+                        <span class="step-dot" data-step="3">03</span>
+                        <span class="step-dot" data-step="4">04</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#about" class="hero-scroll-indicator" aria-label="Scroll to About section">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- About Section (Bike Cockpit Background) -->
+    <section class="about section-padding bike-bg-section" id="about">
+        <div class="bike-bg-layer bike-bg-cockpit" data-parallax="0.2"></div>
+        <div class="bike-bg-overlay"></div>
+        <div class="bike-glow-spotlight"></div>
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left: Workshop Craftsmanship Image Frame -->
+                <div class="about-image-wrapper reveal">
+                    <div class="metallic-frame">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="7M MOTORS Workshop Engine Overhaul" class="about-img" loading="lazy">
+                        <div class="frame-badge">
+                            <span class="badge-icon">⚡</span>
+                            <span class="badge-text">Studio Workshop</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Heritage Copy & Stat Counters -->
+                <div class="about-content reveal">
+                    <div class="section-tag">HERITAGE & CRAFTSMANSHIP</div>
+                    <h2 class="section-title">ENGINEERING THE UNFORGETTABLE</h2>
+                    <p class="about-text">
+                        At 7M MOTORS, we don't merely restore cars—we resurrect icons. Operating at the intersection of heritage artistry and advanced mechanical engineering, our studio specializes in rare vintage car sourcing, bespoke engine overhauls, and concours-level visual restorations.
+                    </p>
+                    <p class="about-text">
+                        Every vehicle entering our atelier undergoes hundreds of hours of precision metalwork, blueprinted powertrain tuning, and tailor-made interior upholstering.
+                    </p>
+
+                    <!-- Feature Highlights / Stat Counters -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
+                            </div>
+                            <div class="stat-label">Bespoke Restorations</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="100">0</span><span class="stat-percent">%</span>
+                            </div>
+                            <div class="stat-label">Precision Sourced</div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-number-wrapper">
+                                <span class="stat-number" data-target="25">0</span><span class="stat-plus">+</span>
+                            </div>
+                            <div class="stat-label">Master Technicians</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services & Atelier Capabilities Section -->
+    <section class="services section-padding bike-bg-section" id="services">
+        <div class="bike-bg-layer bike-bg-rear" data-parallax="0.25"></div>
+        <div class="bike-bg-overlay"></div>
+        <canvas class="bike-exhaust-canvas" id="exhaust-canvas-index"></canvas>
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-tag">ATELIER CAPABILITIES & SOLUTIONS</div>
+                <h2 class="section-title">OUR EXCLUSIVE SERVICES</h2>
+                <p class="section-subtitle">From bespoke vehicle customization and white-glove delivery to full concours restorations, 7M MOTORS delivers precision automotive engineering.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: Bespoke Customization -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <span class="service-badge">Custom Build</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Bespoke Customization & Tuning</h3>
+                        <p class="service-desc">Tailor-made body modifications, bare-metal sculpting, custom carbon fiber paneling, performance exhaust fabrication, and high-performance ECU recalibration.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Bare-Metal & Widebody Sculpting</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Laser-Welded Titanium Exhausts</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Custom Paint & Carbon Fiber Trim</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Commission Customization</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: White-Glove Delivery -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        </div>
+                        <span class="service-badge">Enclosed Logistics</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">White-Glove Doorstep Delivery</h3>
+                        <p class="service-desc">Nationwide & international enclosed, climate-controlled transport service ensuring your vintage motorcycle or luxury vehicle arrives in 100% pristine concours condition.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Enclosed & Climate-Controlled Fleet</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Real-Time GPS Transit Tracking</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Full Transit Insurance & Doorstep Handover</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Request Delivery Quote</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Concours Restoration -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path></svg>
+                        </div>
+                        <span class="service-badge">Concours Grade</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Full Concours Restoration</h3>
+                        <p class="service-desc">Nut-and-bolt stripdowns, frame laser realignment, original period chrome plating, and factory-accurate restorations executed to international concours standards.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Strip-To-Bare-Metal Rebuilds</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Period-Accurate Chrome & Badging</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Engine & Transmission Blueprinting</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Book Restoration Slot</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Powertrain & Engine Blueprinting -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                        </div>
+                        <span class="service-badge">Precision Performance</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Engine Blueprinting & Rebuilds</h3>
+                        <p class="service-desc">Complete mechanical overhaul, precision cylinder honing, valve train blueprinting, performance BMC air intake retrofits, and acoustic exhaust tuning.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Micrometer Valvetrain Calibration</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Custom BMC Air Filter Integrations</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Dyno Power & Acoustic Tuning</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Inquire Powertrain Build</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Atelier Interior Craftsmanship -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <span class="service-badge">Tailor-Made Cabin</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Atelier Interior Upholstery</h3>
+                        <p class="service-desc">Bespoke cabin upholstering using hand-stitched Connolly leather, CNC-machined titanium switchgear, custom seat profiles, and retro-modern instrumentation.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Hand-Stitched Leather Saddles & Seats</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>CNC Titanium & Brass Hardware</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Custom Digital-Analog Instruments</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Design Your Interior</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Vehicle Acquisition & Sourcing -->
+                <div class="service-card reveal">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <span class="service-badge">Collector Sourcing</span>
+                    </div>
+                    <div>
+                        <h3 class="service-title">Vehicle Acquisition & Advisory</h3>
+                        <p class="service-desc">Global procurement network for acquiring rare classic cars, iconic vintage Royal Enfield models, and collector motorcycles with verified provenance.</p>
+                        <ul class="service-features">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Rare Vintage Vehicle Scouting</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Provenance & Mechanical Verification</span>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Collector Advisory & Valuation</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-footer">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="service-link">
+                            <span>Inquire Vehicle Sourcing</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner (Bike Cockpit Background) -->
+    <section class="cta-banner section-padding bike-bg-section">
+        <div class="bike-bg-layer bike-bg-cockpit" data-parallax="0.15"></div>
+        <div class="bike-bg-overlay"></div>
+        <div class="container text-center">
+            <div class="cta-box reveal">
+                <h2 class="cta-title">READY TO OWN AN AUTOMOTIVE MASTERPIECE?</h2>
+                <p class="cta-desc">Connect directly with our master builders and vehicle acquisition specialists via Instagram Direct Message.</p>
+                <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <span>Pre-Book & Inquire via DM</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">7M MOTORS</a>
+                    <p class="footer-tagline">Luxury Car Dealership & Custom Restoration Studio. Delivering precision craftsmanship and automotive perfection.</p>
+                    <div class="footer-social-row">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Navigation</h4>
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Our Services</a>
+                        <a href="gallery.html">7M Gallery</a>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Services</h4>
+                        <a href="#about">Rare Car Sourcing</a>
+                        <a href="#about">Engine Blueprinting</a>
+                        <a href="#about">Concours Restorations</a>
+                        <a href="#about">Bespoke Fabrication</a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Connect</h4>
+                        <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram DM</span>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook Page</span>
+                        </a>
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer">Studio Updates</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 7M MOTORS. All Rights Reserved. Built with Precision.</p>
+                <div class="footer-legal">
+                    <a href="#home">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="#home">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

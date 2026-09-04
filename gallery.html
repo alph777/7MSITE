@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="7M MOTORS Atelier Gallery - Curated collection of restored icons, motorcycle engineering, and custom builds." />
+    <title>7M MOTORS | Atelier Gallery & Exhibition</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Syne:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Ambient Glass Light Orbs & Interactive Spotlight Beam -->
+    <div class="cursor-spotlight" id="cursor-spotlight"></div>
+    <div class="ambient-glass-orb ambient-orb-1"></div>
+    <div class="ambient-glass-orb ambient-orb-2"></div>
+
+    <!-- Navigation Bar (Matching Main Site Header) -->
+    <header class="navbar" id="navbar">
+        <!-- Top Centered Logo Bar -->
+        <div class="nav-top-bar">
+            <a href="index.html#home" class="nav-logo-center">
+                <img src="logo.png" alt="7M MOTORS Logo" class="brand-logo-img" onerror="this.style.display='none'">
+                <span class="logo-text">7M MOTORS</span>
+            </a>
+        </div>
+
+        <!-- Lower Navigation Bar -->
+        <div class="nav-container">
+            <div class="nav-left-placeholder"></div>
+
+            <!-- Centered Menu Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="index.html#services" class="nav-link">Our Services</a>
+                <a href="gallery.html" class="nav-link active">7M Gallery</a>
+                <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta mobile-cta">Pre-Book</a>
+            </nav>
+
+            <!-- Right Action CTA & Mobile Hamburger -->
+            <div class="nav-actions">
+                <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-cta desktop-cta">Pre-Book</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Gallery Section (With Parallax Bike Background & Particle FX) -->
+    <section class="gallery-section section-padding bike-bg-section" id="gallery" style="padding-top: 150px; min-height: 100vh;">
+        <!-- Dynamic Background Layers matching Main Site -->
+        <div class="bike-bg-layer bike-bg-cockpit" data-parallax="0.2"></div>
+        <div class="bike-bg-overlay"></div>
+        <div class="bike-glow-spotlight"></div>
+        <canvas class="bike-exhaust-canvas" id="exhaust-canvas-gallery"></canvas>
+
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center reveal">
+                <div class="section-tag">ATELIER ARCHIVE & EXHIBITS</div>
+                <h2 class="section-title">7M GALLERY</h2>
+                <p class="section-subtitle">A curated collection of restored icons, bespoke motorcycle engineering, blueprint overhauls, and atelier artistry.</p>
+            </div>
+
+           
+              
+            <!-- Category Filter Tabs -->
+            <div class="gallery-filter-nav reveal">
+                <button class="filter-btn active" data-filter="all">All Exhibits</button>
+                <button class="filter-btn" data-filter="bullet">Royal Enfield Bullet</button>
+                <button class="filter-btn" data-filter="honda">Honda CBR & Sport</button>
+                <button class="filter-btn" data-filter="atelier">7M Atelier Customs</button>
+            </div>
+
+            <!-- Gallery Grid (Matching Main Site Showcase Cards) -->
+            <div class="showcase-grid" id="gallery-cards-grid">
+                
+                <!-- Exhibit Card 1 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="stc/WhatsApp Image 2026-08-22 at 2.43.35 PM.jpeg" alt="1990 Royal Enfield Bullet Standard Restomod" loading="lazy" />
+                        <span class="card-status status-gold">Full Restomod</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">1990 Royal Enfield Bullet • Standard</div>
+                        <h3 class="card-title">Boss Heritage Restomod</h3>
+                        <p class="card-desc">Strip-to-metal overhaul featuring blueprinted 350cc single, hand-crafted chrome accents, and bespoke leather saddle.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">350cc Single</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Bare Metal</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">1,200 hrs</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 2 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="stc/WhatsApp Image 2026-08-22 at 2.43.36 PM.jpeg" alt="1989 Royal Enfield Bullet Classic 4-Stroke" loading="lazy" />
+                        <span class="card-status status-silver">Concours Grade</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">1989 Royal Enfield Bullet • Classic (4-Stroke)</div>
+                        <h3 class="card-title">Classic 4-Stroke Concours Edition</h3>
+                        <p class="card-desc">Precision restoration with blueprinted internal valve geometry, mirror-polished casing, and vintage pin-striping.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Concours Spec</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">4-Stroke</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Mirror Polish</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 3 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="stc/WhatsApp Image 2026-08-22 at 2.43.40 PM.jpeg" alt="Royal Enfield Vintage Custom Atelier Build" loading="lazy" />
+                        <span class="card-status status-gold">Studio Custom</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">Royal Enfield • Vintage Atelier Spec</div>
+                        <h3 class="card-title">7M Signature Vintage Build</h3>
+                        <p class="card-desc">Hand-hammered brass badgework, custom low-slung handlebars, retro touring setup, and blueprinted transmission.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Custom Tank</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Brass Details</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Hand Built</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 4 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="pics/WhatsApp Image 2026-08-07 at 10.09.05 PM.jpeg" alt="Royal Enfield Bullet Workshop Overhaul" loading="lazy" />
+                        <span class="card-status status-crimson">Workshop Special</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">Royal Enfield Bullet • Workshop Overhaul</div>
+                        <h3 class="card-title">Blueprinted Engine Overhaul</h3>
+                        <p class="card-desc">Complete engine teardown, bore-and-stroke refinish, precision-balanced crankshaft, and tuned carburetor recalibration.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Blueprinted</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Bore Refinish</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Balanced</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 5 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="pics/WhatsApp Image 2026-08-07 at 10.09.08 PM.jpeg" alt="Royal Enfield Bullet Custom Detail" loading="lazy" />
+                        <span class="card-status status-silver">Detail Finish</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">Royal Enfield Bullet • Detail Craftsmanship</div>
+                        <h3 class="card-title">Precision Detail Finish</h3>
+                        <p class="card-desc">Mirror-polished chrome, hand-stitched leather grip wraps, custom pinstripe livery, and museum-grade concours assembly.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Chrome Polish</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Leather Wrap</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Concours</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 6 (Royal Enfield Bullet) -->
+                <article class="showcase-card reveal" data-category="bullet">
+                    <div class="card-image-box">
+                        <img src="pics/WhatsApp Image 2026-08-21 at 8.36.47 PM.jpeg" alt="Royal Enfield Bullet Restoration In Progress" loading="lazy" />
+                        <span class="card-status status-gold">In Progress</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">Royal Enfield Bullet • Restoration</div>
+                        <h3 class="card-title">Live Restoration Build</h3>
+                        <p class="card-desc">Ground-up restoration in progress — frame sandblasting, rust treatment, primer coat, and engine bay reconditioning.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Ground-Up</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Frame Work</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">In Progress</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 7 (Honda CBR) -->
+                <article class="showcase-card reveal" data-category="honda">
+                    <div class="card-image-box">
+                        <img src="stc/WhatsApp Image 2026-08-22 at 2.43.38 PM.jpeg" alt="Honda CBR250R 4-Stroke DOHC Restomod" loading="lazy" />
+                        <span class="card-status status-crimson">Custom BMC Filter</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">Honda CBR250R • 4-Stroke DOHC</div>
+                        <h3 class="card-title">CBR Performance Atelier</h3>
+                        <p class="card-desc">High-flow BMC performance air intake system, ecu recalibration, laser-welded titanium exhaust, and race aero tune.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">DOHC Tuned</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">BMC Intake</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Titanium Pipe</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 8 (7M Atelier Custom) -->
+                <article class="showcase-card reveal" data-category="atelier">
+                    <div class="card-image-box">
+                        <img src="pics/WhatsApp Image 2026-08-28 at 12.24.50 PM.jpeg" alt="7M Motors Atelier Custom Bike Build" loading="lazy" />
+                        <span class="card-status status-gold">Bespoke Build</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">7M Atelier • Bespoke Motorcycle</div>
+                        <h3 class="card-title">Atelier Custom Masterpiece</h3>
+                        <p class="card-desc">One-of-a-kind custom fabrication — hand-shaped tank, bespoke exhaust routing, custom jig-welded frame, and studio paint finish.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Custom Frame</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Hand Shaped</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Studio Paint</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Exhibit Card 9 (7M Atelier Custom) -->
+                <article class="showcase-card reveal" data-category="atelier">
+                    <div class="card-image-box">
+                        <img src="pics/WhatsApp Image 2026-08-28 at 12.24.51 PM.jpeg" alt="7M Motors Studio Signature Build" loading="lazy" />
+                        <span class="card-status status-silver">Studio Signature</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">7M Atelier • Studio Signature Series</div>
+                        <h3 class="card-title">Studio Signature Series</h3>
+                        <p class="card-desc">Limited-run atelier build with precision powder-coat finish, CNC-machined components, and hand-assembled drivetrain.</p>
+                        <div class="card-specs">
+                            <span><strong class="text-silver">Powder Coat</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">CNC Parts</strong></span>
+                            <span>•</span>
+                            <span><strong class="text-silver">Hand Built</strong></span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner (Matching Main Site) -->
+    <section class="cta-banner section-padding bike-bg-section">
+        <div class="bike-bg-layer bike-bg-rear" data-parallax="0.15"></div>
+        <div class="bike-bg-overlay"></div>
+        <div class="container text-center">
+            <div class="cta-box reveal">
+                <h2 class="cta-title">HAVE A VINTAGE ICON TO RESTORE?</h2>
+                <p class="cta-desc">Inquire directly with our studio master builders and acquisition specialists via Instagram Direct Message.</p>
+                <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <span>Pre-Book & Inquire via DM</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lightbox Modal -->
+    <div class="gallery-lightbox" id="gallery-lightbox">
+        <div class="lightbox-dialog">
+            <button class="lightbox-close-btn" id="lb-close" aria-label="Close exhibit preview">&times;</button>
+            <div class="lightbox-image-box">
+                <img id="lb-img" src="" alt="Gallery Exhibit Preview" />
+            </div>
+            <div class="lightbox-details">
+                <div>
+                    <div class="lightbox-tag" id="lb-tag">Exhibit</div>
+                    <h2 class="lightbox-title" id="lb-title">Restoration Title</h2>
+                    <p class="lightbox-desc" id="lb-desc">Detailed specification description.</p>
+                </div>
+                <div>
+                    <div class="lightbox-specs-grid">
+                        <div class="lb-spec-item">
+                            <span class="lb-spec-label">Powertrain / Build</span>
+                            <span class="lb-spec-val" id="lb-spec-1-val">Blueprinted</span>
+                        </div>
+                        <div class="lb-spec-item">
+                            <span class="lb-spec-label">Craftsmanship</span>
+                            <span class="lb-spec-val" id="lb-spec-2-val">Concours Grade</span>
+                        </div>
+                    </div>
+                    <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+                        <span>Commission Similar Build</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Matching Main Site Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html#home" class="footer-logo">7M MOTORS</a>
+                    <p class="footer-tagline">Luxury Car Dealership & Custom Restoration Studio. Delivering precision craftsmanship and automotive perfection.</p>
+                    <div class="footer-social-row">
+                        <a href="https://www.instagram.com/7mmotors.india/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Navigation</h4>
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#about">About Us</a>
+                        <a href="index.html#services">Our Services</a>
+                        <a href="gallery.html">7M Gallery</a>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Services</h4>
+                        <a href="index.html#about">Rare Car Sourcing</a>
+                        <a href="index.html#about">Engine Blueprinting</a>
+                        <a href="index.html#about">Concours Restorations</a>
+                        <a href="index.html#about">Bespoke Fabrication</a>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Connect</h4>
+                        <a href="https://ig.me/m/7mmotors.india" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram DM</span>
+                        </a>
+                        <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                            <span>Facebook Page</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 7M MOTORS. All Rights Reserved. Built with Precision.</p>
+                <div class="footer-legal">
+                    <a href="index.html#home">Privacy Policy</a>
+                    <span>•</span>
+                    <a href="index.html#home">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Controller Script -->
+    <script src="main.js"></script>
+
+</body>
+</html>
