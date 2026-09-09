@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScrollNavbar();
 
     // ----------------------------------------------------------------------
-    // 4. Scroll-Driven 194-Frame Canvas Hero Animation (2-Column No Overlap)
+    // 4. Scroll-Driven 194-Frame Canvas Hero Animation (Responsive Mobile & Desktop)
     // ----------------------------------------------------------------------
     const canvas = document.getElementById('hero-canvas');
     const heroContainer = document.querySelector('.hero-scroll-container');
@@ -96,10 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const stepDots = document.querySelectorAll('.step-dot');
 
     const TOTAL_FRAMES = 194;
-    const images = [];
+    const images = new Array(TOTAL_FRAMES);
     let currentFrameIndex = 0;
     let canvasCtx = null;
     let isTicking = false;
+    let lastCanvasW = 0;
+    let lastCanvasH = 0;
 
     if (canvas) {
         canvasCtx = canvas.getContext('2d');
@@ -109,9 +111,31 @@ document.addEventListener('DOMContentLoaded', () => {
             return `public/ezgif-frame-${frameNum}.png`;
         }
 
-        // Draw image: Bike in right column on desktop, fully visible, non-short, zero watermark
+        // Draw image with graceful fallback to closest loaded frame
         function drawFrame(frameIndex) {
-            const img = images[frameIndex];
+            if (!canvasCtx) return;
+
+            // 1. Try target frame, or gracefully fallback to nearest loaded frame
+            let img = images[frameIndex];
+            if (!img || !img.complete || img.naturalWidth === 0) {
+                // Search backwards first
+                for (let j = frameIndex - 1; j >= 0; j--) {
+                    if (images[j] && images[j].complete && images[j].naturalWidth > 0) {
+                        img = images[j];
+                        break;
+                    }
+                }
+                // If not found backwards, search forwards
+                if (!img || !img.complete || img.naturalWidth === 0) {
+                    for (let j = frameIndex + 1; j < TOTAL_FRAMES; j++) {
+                        if (images[j] && images[j].complete && images[j].naturalWidth > 0) {
+                            img = images[j];
+                            break;
+                        }
+                    }
+                }
+            }
+
             if (!img || !img.complete || img.naturalWidth === 0) return;
 
             const cw = canvas.width;
@@ -121,13 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             canvasCtx.clearRect(0, 0, cw, ch);
 
-            const dpr = window.devicePixelRatio || 1;
-            const isDesktop = cw > 900 * dpr;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const isDesktop = (cw >= 992 * dpr) || (cw > ch && cw >= 768 * dpr);
 
-            // Brightness & contrast pop filter
-            canvasCtx.filter = 'brightness(1.18) contrast(1.10) saturate(1.12)';
+            // Pop contrast and clarity filter
+            if ('filter' in canvasCtx) {
+                try {
+                    canvasCtx.filter = 'brightness(1.18) contrast(1.10) saturate(1.12)';
+                } catch (e) {}
+            }
 
-            // Clean watermark removal: trim right 6% and bottom 7% corner without slicing bike top/left
+            // Watermark removal: trim right 6% and bottom 7%
             const cropX = 0;
             const cropY = 0;
             const cropW = iw * 0.94;
@@ -136,14 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
             let fitScale, nw, nh, cx, cy;
 
             if (isDesktop) {
-                // Reserve left 42% exclusively for the glass step widget
+                // Desktop: 2-column layout (Text left 42%, Bike right 58%)
                 const leftWidgetSpace = Math.min(520 * dpr, cw * 0.42);
                 const availableW = cw - leftWidgetSpace;
                 const topGap = 80 * dpr; // Clears top navbar completely
                 const bottomGap = 35 * dpr;
                 const availableH = ch - topGap - bottomGap;
 
-                // Scale bike to be prominent & large in the right column (not short!)
+                // Scale bike to be prominent & large in the right column
                 fitScale = Math.min(availableW / cropW, availableH / cropH) * 0.96;
                 nw = cropW * fitScale;
                 nh = cropH * fitScale;
@@ -152,45 +180,120 @@ document.addEventListener('DOMContentLoaded', () => {
                 cx = leftWidgetSpace + (availableW - nw) / 2;
                 cy = topGap + (availableH - nh) / 2;
             } else {
-                // Mobile/Tablet layout: stack widget below bike
-                const topGap = 75 * dpr;
-                const bottomGap = 160 * dpr;
-                const availableH = ch - topGap - bottomGap;
-                const availableW = cw * 0.95;
+                // Mobile & Tablet Portrait: Dedicated upper stage for the bike!
+                // Clears top navbar and leaves bottom zone for the docked step card
+                const topGap = 70 * dpr;
+                const bottomCardSpace = 220 * dpr;
+                const availableH = Math.max(160 * dpr, ch - topGap - bottomCardSpace);
+                const availableW = cw * 0.96;
 
                 fitScale = Math.min(availableW / cropW, availableH / cropH);
                 nw = cropW * fitScale;
                 nh = cropH * fitScale;
+
+                // Center bike horizontally and vertically in its dedicated viewing zone
                 cx = (cw - nw) / 2;
-                cy = topGap + (availableH - nh) / 2;
+                cy = topGap + Math.max(0, (availableH - nh) / 2);
             }
 
-            // Render 100% fully viewable, un-obscured bike frame in right column
             canvasCtx.drawImage(img, cropX, cropY, cropW, cropH, cx, cy, nw, nh);
         }
 
         function resizeCanvas() {
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const targetW = Math.round(window.innerWidth * dpr);
+            const targetH = Math.round(window.innerHeight * dpr);
+
+            // Avoid reallocating canvas buffer on minor address-bar scroll events on mobile
+            const isMinorMobileHeightChange = 
+                lastCanvasW === targetW && Math.abs(lastCanvasH - targetH) < (100 * dpr);
+
+            if (!isMinorMobileHeightChange || lastCanvasW === 0) {
+                canvas.width = targetW;
+                canvas.height = targetH;
+                lastCanvasW = targetW;
+                lastCanvasH = targetH;
+            }
+
             drawFrame(currentFrameIndex);
         }
 
         window.addEventListener('resize', resizeCanvas, { passive: true });
+        window.addEventListener('orientationchange', () => {
+            setTimeout(resizeCanvas, 150);
+        }, { passive: true });
 
-        // Preload Image Sequence Strategy
+        // Progressive Preload Image Sequence Strategy
         function preloadFrames() {
-            for (let i = 0; i < TOTAL_FRAMES; i++) {
-                const img = new Image();
-                img.src = getFramePath(i);
-                if (i === 0) {
-                    img.onload = () => {
-                        resizeCanvas();
-                        drawFrame(0);
-                    };
-                }
-                images.push(img);
+            // First pass: load frame 0 and keyframes for instant responsiveness
+            const keyframeInterval = 10;
+            const priorityIndices = [0];
+
+            for (let i = keyframeInterval; i < TOTAL_FRAMES; i += keyframeInterval) {
+                priorityIndices.push(i);
             }
+            if (!priorityIndices.includes(TOTAL_FRAMES - 1)) {
+                priorityIndices.push(TOTAL_FRAMES - 1);
+            }
+
+            function loadSingleFrame(idx) {
+                if (images[idx]) return;
+                const img = new Image();
+                img.onload = () => {
+                    // If this newly loaded frame is current or adjacent, redraw
+                    if (idx === currentFrameIndex || Math.abs(idx - currentFrameIndex) <= 1) {
+                        drawFrame(currentFrameIndex);
+                    }
+                };
+                img.src = getFramePath(idx);
+                images[idx] = img;
+            }
+
+            // Immediately load priority keyframes
+            priorityIndices.forEach(idx => loadSingleFrame(idx));
+
+            // Initial immediate render attempt
+            if (images[0] && images[0].complete && images[0].naturalWidth > 0) {
+                resizeCanvas();
+                drawFrame(0);
+            } else if (images[0]) {
+                const origOnload = images[0].onload;
+                images[0].onload = () => {
+                    if (origOnload) origOnload();
+                    resizeCanvas();
+                    drawFrame(0);
+                };
+            }
+
+            // Secondary pass: load all remaining frames in chunks
+            const remainingIndices = [];
+            for (let i = 0; i < TOTAL_FRAMES; i++) {
+                if (!priorityIndices.includes(i)) {
+                    remainingIndices.push(i);
+                }
+            }
+
+            let chunkIndex = 0;
+            const chunkSize = 12;
+
+            function loadNextChunk() {
+                if (chunkIndex >= remainingIndices.length) return;
+                const end = Math.min(chunkIndex + chunkSize, remainingIndices.length);
+                for (let i = chunkIndex; i < end; i++) {
+                    loadSingleFrame(remainingIndices[i]);
+                }
+                chunkIndex = end;
+                if (chunkIndex < remainingIndices.length) {
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(() => loadNextChunk(), { timeout: 1000 });
+                    } else {
+                        setTimeout(loadNextChunk, 80);
+                    }
+                }
+            }
+
+            // Delay non-priority chunks slightly to let initial page paint first
+            setTimeout(loadNextChunk, 200);
         }
 
         preloadFrames();
@@ -210,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrolled = -containerRect.top;
             const totalScrollable = containerHeight - windowHeight;
             
-            let progress = scrolled / totalScrollable;
+            let progress = totalScrollable > 0 ? scrolled / totalScrollable : 0;
             progress = Math.max(0, Math.min(1, progress));
 
             // Update Progress Bar
