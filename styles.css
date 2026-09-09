@@ -442,9 +442,11 @@ ul {
 }
 
 .hero-sticky-frame {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     height: 100vh;
+    height: 100dvh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -499,6 +501,7 @@ ul {
     align-items: center;
     justify-content: flex-start;
     padding-top: 70px;
+    pointer-events: none;
 }
 
 /* Left-Column Glassmorphism Tagline Widget */
@@ -1365,26 +1368,140 @@ ul {
     }
 }
 
+@media (max-width: 992px) {
+    .hero-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(10, 10, 12, 0.75) 0%,
+            rgba(10, 10, 12, 0.2) 10%,
+            transparent 16%,
+            transparent 56%,
+            rgba(10, 10, 12, 0.68) 75%,
+            rgba(10, 10, 12, 0.96) 100%
+        );
+    }
+
+    .hero-overlay-content {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 1.25rem;
+    }
+
+    .hero-step {
+        top: auto;
+        bottom: 1.25rem;
+        left: 50%;
+        right: auto;
+        width: calc(100% - 2rem);
+        max-width: 520px;
+        transform: translate(-50%, 18px);
+        padding: 1.1rem 1.3rem;
+        border-radius: var(--radius-md);
+        box-shadow: 0 16px 45px rgba(0, 0, 0, 0.92), var(--glass-inner-shine), 0 0 25px rgba(255, 255, 255, 0.05);
+        max-height: 38vh;
+        overflow-y: auto;
+        pointer-events: none;
+    }
+
+    .hero-step.active {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .hero-badge,
+    .feature-tag {
+        font-size: 0.7rem;
+        letter-spacing: 1.8px;
+        padding: 0.24rem 0.7rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .hero-title-left,
+    .feature-title {
+        font-size: clamp(1.05rem, 3.8vw, 1.4rem);
+        line-height: 1.2;
+        margin-bottom: 0.4rem;
+        letter-spacing: -0.2px;
+    }
+
+    .hero-subtitle,
+    .feature-desc {
+        font-size: 0.8rem;
+        line-height: 1.35;
+        margin-bottom: 0.75rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .hero-cta-group {
+        gap: 0.55rem;
+    }
+
+    .hero-cta-group .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-cta-group .btn svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .feature-stats {
+        gap: 1.8rem;
+        margin-bottom: 0;
+    }
+
+    .f-val {
+        font-size: 1.2rem;
+    }
+
+    .f-lbl {
+        font-size: 0.65rem;
+    }
+
+    .scroll-progress-wrapper {
+        top: 72px;
+        right: 1.2rem;
+        bottom: auto;
+        gap: 0.4rem;
+    }
+
+    .scroll-progress-track {
+        width: 100px;
+        height: 2px;
+    }
+
+    .scroll-step-indicator {
+        font-size: 0.7rem;
+        gap: 0.65rem;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-scroll-container {
         height: 380vh;
     }
 
-    .hero-step {
-        top: 52%;
-        left: 1rem;
-        right: 1rem;
-        max-width: calc(100% - 2rem);
-        padding: 1.4rem 1.5rem;
-    }
-
     .scroll-progress-wrapper {
-        bottom: 2rem;
+        top: 68px;
         right: 1rem;
+        bottom: auto;
     }
 
     .scroll-progress-track {
-        width: 100px;
+        width: 90px;
     }
 
     .nav-left-placeholder {
@@ -2149,5 +2266,35 @@ ul {
     .slide-dot {
         width: 7px;
         height: 7px;
+    }
+
+    /* Hero adjustments for compact mobile */
+    .hero-step {
+        bottom: 0.85rem;
+        left: 50%;
+        right: auto;
+        width: calc(100% - 1.5rem);
+        padding: 0.9rem 1.05rem;
+        max-height: 42vh;
+    }
+
+    .hero-title-left,
+    .feature-title {
+        font-size: 1.05rem;
+    }
+
+    .hero-subtitle,
+    .feature-desc {
+        font-size: 0.75rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .scroll-progress-wrapper {
+        top: 66px;
+        right: 0.75rem;
+    }
+
+    .scroll-progress-track {
+        width: 80px;
     }
 }
